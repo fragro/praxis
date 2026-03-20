@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRAXIS: The Manifesto</title>
+  <meta name="description" content="Build the lifeboat. A manifesto for parallel democratic infrastructure." />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/theme.js"></script>
+  <style>
+    /* Manifesto-specific overrides: single-column reading layout */
+    body { display: block; background: var(--surface); }
+    .manifesto { max-width: 720px; margin: 0 auto; padding: 80px 48px 120px; }
+    .manifesto .doc-eyebrow { margin-bottom: 20px; }
+    .manifesto .doc-title { font-size: 42px; line-height: 1.05; margin-bottom: 10px; }
+    .manifesto .doc-subtitle {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-2);
+      line-height: 1.3;
+      margin-bottom: 48px;
+      letter-spacing: -0.3px;
+    }
+    .m-section { margin-bottom: 56px; }
+    .m-section-num {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .m-section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .m-body {
+      font-size: 15px;
+      color: var(--text-1);
+      line-height: 2;
+    }
+    .m-body p { margin-bottom: 20px; }
+    .m-body p:last-child { margin-bottom: 0; }
+    .m-body strong { font-weight: 600; color: var(--black); }
+    .m-body em { font-style: italic; color: var(--text-2); }
+    .m-pull {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.45;
+      letter-spacing: -0.3px;
+      padding: 28px 0 28px 24px;
+      border-left: 3px solid var(--red);
+      margin: 36px 0;
+    }
+    .m-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--red);
+      margin: 56px 0;
+    }
+    .m-closing {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+      margin-top: 56px;
+      margin-bottom: 16px;
+    }
+    .m-sig {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-3);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .m-link {
+      display: inline-block;
+      margin-top: 32px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 1.5px solid var(--red);
+      border-radius: var(--radius-sm);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .m-link:hover { background: var(--red); color: #fff; }
+    @media (max-width: 900px) {
+      .manifesto { padding: 48px 24px 80px; }
+      .manifesto .doc-title { font-size: 30px; }
+      .manifesto .doc-subtitle { font-size: 17px; }
+      .m-section-title { font-size: 19px; }
+      .m-pull { font-size: 17px; }
+      .m-closing { font-size: 24px; }
+    }
+    .manifesto-theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    @media print {
+      .manifesto { padding: 40px 32px; }
+      .m-link { display: none; }
+      .manifesto-theme-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="manifesto-theme-toggle theme-toggle">
+  <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode"></button>
+</div>
+
+<article class="manifesto">
+
+  <div class="doc-eyebrow">PRAXIS</div>
+  <h1 class="doc-title">Build the Lifeboat.</h1>
+  <div class="doc-subtitle">A manifesto for parallel democratic infrastructure.</div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">I. The Burning Ship</div>
+    <div class="m-section-title">You already know the system is failing.</div>
+    <div class="m-body">
+      <p>You do not need this document to tell you. You can see it in the price of groceries and the price of rent. You can see it in the ballot box that changes nothing and the city council that does not return your calls. You can see it in the speed with which your government can mobilize to wage war and the slowness with which it responds to a flood, a fire, a poisoned water supply. You can see it in the fact that your employer can fire you on a Tuesday and your landlord can evict you on a Wednesday and the system that is supposed to protect you from both requires you to navigate it like a lawyer, which you cannot afford, because you were just fired on a Tuesday.</p>
+
+      <p>This is not a bug. It is the system functioning as designed. The economy is not broken; it is working precisely as intended for the people it was built to serve. The democracy is not malfunctioning; it was engineered to contain democratic participation, not enable it. The institutions are not failing their mission. Their mission was never what they told you it was.</p>
+
+      <p>You know this. Sixty-seven percent of Americans believe the country is on the wrong track. Congress has a fourteen percent approval rating. Trust in institutions is at historic lows across every demographic, every geography, every political alignment. The legitimacy crisis is not an argument. It is a lived condition that does not require persuasion, only acknowledgment.</p>
+
+      <p>The ship is on fire. That is no longer the interesting question. The interesting question is: <strong>what are you going to do about it?</strong></p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">II. The Dead Ends</div>
+    <div class="m-section-title">The options you have been given are not the options that exist.</div>
+    <div class="m-body">
+      <p><strong>Vote harder.</strong> You have been voting. Your parents voted. Their parents voted. The Voting Rights Act is sixty years old and the median Black household still holds eight cents of wealth for every dollar held by the median white household. Voting is a defensive instrument. It can slow damage. It has never, in the history of the American republic, been sufficient to produce structural transformation. The people who tell you to vote harder are asking you to defend the system that is producing the crisis. They are asking you to save the burning ship by rearranging the deck chairs.</p>
+
+      <p><strong>Protest.</strong> You have protested. Twenty-six million Americans protested in the summer of 2020, the largest protest movement in the country's history. The Minneapolis city council stood on a stage and pledged to defund the police. Mutual aid networks fed 18,000 people. Neighborhood assemblies formed in parks and on street corners. It was the most energized, most organized, most broadly supported uprising in a generation. And within eighteen months: the police budget increased, the ballot measure failed, the mutual aid networks collapsed from volunteer exhaustion, and the council members who made the pledge either retracted it or did not run for re-election. The energy was real. The infrastructure to hold it was not. Twenty-six million people showed up and had nowhere to go.</p>
+
+      <p><strong>Riot.</strong> Since the WTO Protests of 1999 we have escalated. We have been kettled, tear gassed, and shot at. Pepper balls have exploded our eyes, we have taken highways, we have been paralyzed. Snatch vans ran us down, and we pushed police back for miles through the thick of the tear gas. We have burned pallet factories mile by mile, all being broadcast through dozens of livestreams. Black bloc faced tens of thousands of riot police. But the livestreams go down. People are arrested or get burnt out, or worse. The riots lose energy and charismatic liberals with megaphones call on the now defanged crowds to vote, vote, vote. Radical energy poured into mutual aid instead. Individual wins happened, but there was no lasting global change. Back to the status quo.</p>
+
+      <p><strong>Revolution.</strong> The twentieth century ran this experiment repeatedly. The Bolsheviks seized state power and produced the Soviet Union. The Chinese Communist Party seized state power and produced the People's Republic. Castro seized state power. Salvadoran guerrillas fought a civil war and won elections. Nicaraguan revolutionaries overthrew a dictator. The South African liberation movement toppled apartheid. The pattern is not ambiguous: movements that seize the state replicate the structures of the state. The instrument of liberation becomes the instrument of domination because the instrument was designed for domination. This is not a moral failure. It is a structural one. The state is not a neutral tool that can be picked up and used for different purposes. It is an architecture that produces hierarchy as a function of its design. Any movement that takes state power is bound to replicate the systems of power it sought to eliminate at best, and at worst will remain a bulwark against global capitalism until it is eventually subsumed by global market pressures.</p>
+
+      <p><strong>Withdrawal.</strong> Off-grid. Homestead. Intentional community. These are fine responses for individuals. They are not politics. They do not alter the conditions under which the other 330 million people in this country live. They are not scalable. They are not replicable. They are retreats from the problem, not responses to it.</p>
+    </div>
+  </div>
+
+  <div class="m-pull">There is a sixth option that the existing political framework does not present to you, because it is the only one that threatens the framework itself.</div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">III. The Lifeboat</div>
+    <div class="m-section-title">Build the parallel system. Make the old one irrelevant.</div>
+    <div class="m-body">
+      <p>Do not seize the ship. Do not protest the captain. Do not rearrange the deck chairs. Do not jump into the ocean alone. <strong>Build the lifeboat.</strong></p>
+
+      <p>The <strong>General Assembly</strong> is a horizontally organized groups of like-minded, geographically clustered, or culturally similar people. Proposals are generated, voted upon, and acted upon by and through the Assembly. These assemblies are the key to the reframing of power that we must do as a society. These assemblies create working groups or circles, which then allow smaller groups of people usually delegated by a catalyst or group lead, can do the work of the assembly. These assemblies allow the people to make decisions as a group, translate those decisions into action, and communicate those actions and decisions to the greater public. However on their own without economic power or political power or authority, assembly alone is insufficient.</p>
+
+      <p><strong>Cooperative and Mutual Aid</strong> organizations are excellent ways to build alternative economic power. Our own schools, clinics, courts, factories provide alternative systems. These require capital unavailable to a single worker and require large scale cooperation and incorporation by the Assembly. These groups must embrace reciprocration. Volunteer work without end leads to burn out. Renumeration and reciprocation systems are more sustainable in the long-run. These are not charities, they are the foundations of a new economic system that is no longer based on coercion.</p>
+
+      <p><strong>Alternative Communications</strong> networks are required for the resilience of the movement against state oppression and corporate sublimination and enmeshment. Counter-cultural ideas on these networks go viral, are monetized, and commodified. This commodification process hooks creators on capital wealth and accumulation while trapping them within a censored and managed ecosystem, where the algorithm will ensure they profit enough to disincentivize escape while also ensuring that their message does not truly reach those it could effect most.</p>
+
+      <p>This is the theory of dual power, not as Lenin intended it, as a temporary crisis to be exploited by a revolutionary vanguard, but as Murray Bookchin reimagined it: the patient, deliberate construction of democratic counter-institutions that gradually absorb the functions the failing system can no longer perform. When your neighborhood assembly allocates resources more effectively than the city council. When your cooperative network provides better employment than the corporate sector. When your mesh network stays operational when the internet goes down. When your mutual aid reaches people faster than FEMA. You have not overthrown anything. You have simply made the old system unnecessary. The question is no longer whether to change the system. The question is why the old one is still running at all.</p>
+
+      <p>This is not a theory. It is a documented practice with a century of evidence.</p>
+
+      <p>In <strong>Chiapas, Mexico</strong>, the Zapatistas have operated autonomous governance (their own schools, clinics, courts, cooperatives, and assemblies) outside the Mexican state for over thirty years. They do not seek to seize power. They build it from below. Their principle is <em>mandar obedeciendo</em>, lead by obeying. Every leader is a delegate who implements the assembly's decisions, not a representative who exercises independent judgment. Every position is unpaid, rotating, and revocable. They have restructured their governance three times in three decades, not because they failed, but because they refuse to defend organizational forms that no longer serve the community. They are still here. The governments that tried to destroy them have turned over multiple times.</p>
+
+      <p>In <strong>Rojava</strong>, the autonomous regions of North and East Syria, five million people across eleven ethnic and religious groups built a functioning democratic confederalist system from the ground up during an active civil war. Over 1,500 communes operate across the territory, each comprising 100 to 350 households making collective decisions through face-to-face assemblies. Every leadership position requires two co-chairs, one of whom must be a woman, not as policy, but as architectural structure. In 2014, the communes resolved over 20,000 disputes. The formal courts handled 4,500. The people's system outperformed the professional one by a factor of four. They did this while fighting ISIS.</p>
+
+      <p>In <strong>Porto Alegre, Brazil</strong>, participatory budgeting (citizens directly allocating real public money through democratic assemblies) increased sewer and water connections from 75% to 98%, quadrupled the number of schools, and grew citizen participation from under 1,000 to 40,000 per year. The model has since spread to over 11,500 municipal processes worldwide. This is not utopian. It is municipal. It is measurable. It is replicable.</p>
+
+      <p>The lifeboat has been built before. It has carried millions. It is not a fantasy. It is an engineering problem.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">IV. The Practice</div>
+    <div class="m-section-title">PRAXIS is not an app. It is a practice for building the lifeboat at scale.</div>
+    <div class="m-body">
+      <p><strong>PRAXIS</strong> (Participatory Revolutionary Autonomous eXperience and Infrastructure Stack) builds exactly three things. First: the <strong>Civic Engine</strong>, an engagement and progression system that makes civic participation visible, rewarding, and communal. No existing tool does this. Second: the <strong>Assembly Playbook</strong>, the methodology and facilitation guides that tell any group of ten people how to run a neighborhood assembly that makes real decisions about real resources. This is documentation and training, not software. Third: the <strong>integration glue</strong>, the deployment guides and connectors that compose dozens of existing open-source tools into a coherent democratic practice.</p>
+
+      <p>Everything else is harvested from an ecosystem that already exists and is already growing. Participatory budgeting tools built by Barcelona's municipal democracy movement. Encrypted communication tools used by the French and German governments. Decentralized video and publishing platforms free from corporate algorithms. Mesh networking protocols that work when the internet does not. Cooperative economy tools used by thousands of enterprises in dozens of countries. PRAXIS does not reinvent any of this. It composes it into a practice and wraps it in a methodology that any community can adopt.</p>
+
+      <p>This is what Occupy needed and did not have. This is what Minneapolis needed when twenty-six million people showed up and found nothing to hold them. This is the practical methodology that Bookchin theorized, that Rojava built with rifles and courage, and that the Zapatistas have sustained for thirty years with patience and discipline.</p>
+
+      <p>The difference is that PRAXIS is designed to deploy in weeks, not decades. To federate across cities, not stay contained in one territory. To survive the loss of any single tool, any single leader, any single funding source, because no tool is a dependency, every city chooses its own stack, and the practice continues regardless of which software runs it.</p>
+    </div>
+  </div>
+
+  <div class="m-pull">The question is not whether people want genuine democratic participation. The question is whether the practice, the methodology, and the tools exist when they come looking for them. PRAXIS is the answer to that question.</div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">V. The Game</div>
+    <div class="m-section-title">The Civic Engine turns organizing into something people actually want to do.</div>
+    <div class="m-body">
+      <p>Every movement in history has faced the same problem: the work of democratic self-governance is demanding, often tedious, and requires sustained commitment from people who have jobs, families, and a thousand easier things to do with their Tuesday evening. The Zapatistas solved this through deep community roots built over a decade. Rojava solved it under the existential pressure of a civil war. Neither of those conditions is reproducible at will.</p>
+
+      <p><strong>The Civic Engine</strong> is PRAXIS's answer: an engagement layer that wraps real civic participation in a structured, visible progression system. Twelve character classes (First Responder, Culture Jammer, Medic, Eco-Warrior Gardener, Field Coordinator, Organizer Ascetic, Vanguard, Scout, Saboteur, Artist, Absurdist, Techie) provide identity within the movement before a participant has any understanding of the underlying political framework. Civic Points are earned through verified real-world actions: attending assemblies, canvassing blocks, facilitating meetings, producing media, submitting proposals. Quest chains guide new participants through their first thirty days of civic engagement, and by completion, they have done more democratic participation than most Americans accomplish in a decade.</p>
+
+      <p>Identity precedes action. People join movements because they want to be someone, not merely to do something. By the time a participant understands dual power theory, they are already practicing it.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">VI. The Math</div>
+    <div class="m-section-title">3.5% is the number. Everything else is execution.</div>
+    <div class="m-body">
+      <p>Research on every major nonviolent movement of the twentieth century has demonstrated that no government has withstood a challenge of 3.5% of its population engaged in sustained, active participation. At the national level, that is eleven million Americans. But PRAXIS does not require eleven million people. It requires functional nodes in twenty to thirty cities, each achieving 3.5% local participation, roughly ten to twenty thousand people per mid-size city.</p>
+
+      <p>Growth under crisis conditions is nonlinear. When fuel prices spike. When elections are threatened. When the next pandemic arrives and the government responds the way it responded last time. When those moments come (and they are coming, and some are already here) the practice that offers genuine democratic agency does not need a marketing campaign. It needs to exist and be findable.</p>
+
+      <p>The lifeboat does not need to carry everyone at once. It needs to be seaworthy, visible, and ready when the next wave hits.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-section-num">VII. The Invitation</div>
+    <div class="m-section-title">This is not a membership pitch. It is a construction project.</div>
+    <div class="m-body">
+      <p>PRAXIS does not need your ideological agreement. It does not require you to read Bookchin or understand confederalism or have an opinion about the Zapatistas. It requires you to want your neighborhood to have a real say in how the city spends its budget. It requires you to believe that the people who live in a community should govern that community. It requires you to be willing to show up, digitally or physically, and participate in making actual decisions about actual resources that affect your actual life.</p>
+
+      <p>If you are an <strong>organizer</strong>, in any city, in any movement, at any scale, the ask is simple: start a PRAXIS assembly in your city and connect with the network. The Assembly Playbook is free. The tools are open-source. The documentation assumes no technical background. Ten committed people and one month is all it takes to run a founding assembly.</p>
+
+      <p>If you are a <strong>developer</strong>, the Civic Engine codebase is open and the integration guides are documented. Every contribution compounds across every city in the network.</p>
+
+      <p>If you are a <strong>researcher</strong> (political science, urban policy, participatory governance, cooperative economics), PRAXIS generates structured, measurable data about democratic participation at a scale that has never existed in a federated, cross-city format. The research practically writes itself.</p>
+
+      <p>If you are a <strong>funder</strong> (civic technology, democratic innovation, community resilience, solidarity economics), this is the infrastructure layer that every individual program you fund is missing. One investment compounds across every city the federation reaches.</p>
+
+      <p>If you are <strong>none of these things</strong>, if you are a person who is tired of being told your only options are to vote, to protest, to withdraw, or to wait, there is a game operating in your city in which real decisions are made, real things change, and real power is exercised. You are not yet in it. Pick a class. Start the first quest. Your neighborhood is waiting.</p>
+    </div>
+  </div>
+
+  <div class="m-divider"></div>
+
+  <!-- ══════════════════════════════════════════ -->
+
+  <div class="m-section">
+    <div class="m-body">
+      <p>The ship is on fire. You can see the flames from where you are standing. The people running the ship are telling you to stay calm, to trust the process, to vote for a better captain in the next election cycle. Some of them are selling you lifejackets that do not float. Some of them are charging you rent for your cabin while the hull fills with water.</p>
+
+      <p>We are not asking you to storm the bridge. We are not asking you to jump overboard. We are asking you to look at the people standing next to you, the ones who also see the flames, who also feel the water rising, and build something together that floats.</p>
+
+      <p>The Zapatistas built theirs in the mountains of Chiapas. Rojava built theirs in the middle of a war. Porto Alegre built theirs inside the existing city government. They did it with rifles and cornfields and mimeographs and patience. You have the internet, open-source software, mesh radios, and a methodology that connects every city in the network.</p>
+
+      <p>The technology is ready. The theory is proven. The precedents are documented. The crisis is here.</p>
+    </div>
+
+    <div class="m-closing">Build the lifeboat.</div>
+
+    <div class="m-body">
+      <p>The old system will make itself irrelevant. It is already doing so. Our job is to make sure something better is standing when it finally admits what everyone already knows.</p>
+
+      <p><em>Un mundo donde quepan muchos mundos.</em><br />A world where many worlds fit.</p>
+    </div>
+  </div>
+
+  <a href="index.html" class="m-link">Read the full PRAXIS document &rarr;</a>
+
+  <div class="m-sig">
+    PRAXIS: Participatory Revolutionary Autonomous eXperience and Infrastructure Stack<br />
+    Theory made practice. The gap between knowing what is wrong and building what is right, closed.
+  </div>
+
+</article>
+
+</body>
+</html>
