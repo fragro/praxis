@@ -91,4 +91,3 @@ To fully self-host fonts, download them from [Google Fonts](https://fonts.google
 
 *PRAXIS — Participatory Revolutionary Autonomous eXperience and Infrastructure Stack*
 *FREE & Cooperation Tulsa · Tulsa, Oklahoma*
-# praxis
