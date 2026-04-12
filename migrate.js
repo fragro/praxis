@@ -14,6 +14,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const http = require('http');
+const https = require('https');
 
 let cheerio;
 try { cheerio = require('cheerio'); } catch { console.error('Run: npm install cheerio'); process.exit(1); }
@@ -58,7 +59,8 @@ function ghostApi(method, endpoint, body) {
       }
     };
 
-    const req = http.request(options, res => {
+    const transport = url.protocol === 'https:' ? https : http;
+    const req = transport.request(options, res => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => {

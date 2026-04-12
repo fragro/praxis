@@ -42,7 +42,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-      - letsencrypt:/etc/letsencrypt:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
       - certbot_webroot:/var/www/certbot:ro
     depends_on:
       - ghost
@@ -77,5 +77,4 @@ volumes:
   ghost_content:
   ghost_db:
   umami_db:
-  letsencrypt:
   certbot_webroot:
