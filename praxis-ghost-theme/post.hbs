@@ -1,0 +1,27 @@
+{{!< default}}
+
+<div class="section active">
+<div class="section-wrap">
+
+  {{#post}}
+    {{> prompt-card}}
+
+    {{#if tags.length}}
+      <div class="sub-label" style="margin-top:32px;">Tags</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        {{#foreach tags}}
+          {{#unless @first}}
+            <a href="{{url}}" class="tool-pill" style="text-decoration:none;">{{name}}</a>
+          {{/unless}}
+        {{/foreach}}
+      </div>
+    {{/if}}
+
+    <div class="doc-footer" style="margin-top:48px;">
+      <span>PRAXIS Manifesto</span>
+      <span>Prompt</span>
+    </div>
+  {{/post}}
+
+</div>
+</div>

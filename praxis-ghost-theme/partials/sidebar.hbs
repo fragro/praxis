@@ -1,0 +1,30 @@
+<nav class="sidebar">
+  <div class="sb-brand">
+    <a href="/" style="text-decoration:none;">
+      <div class="sb-wordmark">PRAXIS</div>
+    </a>
+    <div class="sb-sub">Manifesto</div>
+  </div>
+
+  <div class="sb-nav">
+    <div class="sb-section-label">Document</div>
+    {{#get "pages" filter="tag:hash-section" order="published_at asc" limit="all"}}
+      {{#foreach pages}}
+        <a class="sb-btn{{#if @active}} active{{/if}}" href="{{url}}">{{title}}</a>
+      {{/foreach}}
+    {{/get}}
+  </div>
+
+  {{> theme-toggle}}
+
+  <div class="sb-meta">
+    {{#get "pages" filter="slug:manifesto" limit="1"}}
+      {{#foreach pages}}
+        <a href="{{url}}" style="color:var(--red);text-decoration:none;font-weight:500;">Read the Manifesto &rarr;</a><br /><br />
+      {{/foreach}}
+    {{/get}}
+    Participatory Revolutionary<br />
+    Autonomous eXperience and<br />
+    Infrastructure Stack
+  </div>
+</nav>

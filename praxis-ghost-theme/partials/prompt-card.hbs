@@ -1,0 +1,9 @@
+<div class="prompt-card"{{#has tag="hash-tool"}} data-category="tool"{{/has}}{{#has tag="hash-model"}} data-category="model"{{/has}}{{#has tag="hash-sop"}} data-category="sop"{{/has}}{{#has tag="hash-assess"}} data-category="assess"{{/has}}{{#has tag="hash-plan"}} data-category="plan"{{/has}}{{#has tag="hash-guide"}} data-category="guide"{{/has}}>
+  <div class="prompt-eyebrow">{{#has tag="hash-tool"}}TOOL{{/has}}{{#has tag="hash-model"}}MODEL{{/has}}{{#has tag="hash-sop"}}SOP{{/has}}{{#has tag="hash-assess"}}ASSESS{{/has}}{{#has tag="hash-plan"}}PLAN{{/has}}{{#has tag="hash-guide"}}GUIDE{{/has}}{{#has tag="hash-build"}}BUILD{{/has}}: {{title}}</div>
+  <a href="{{url}}" style="text-decoration:none;color:inherit;">
+    <div class="prompt-question">{{{content}}}</div>
+  </a>
+  {{#if custom_excerpt}}
+    <div class="prompt-hint">{{custom_excerpt}}</div>
+  {{/if}}
+</div>

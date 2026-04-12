@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  ghost:
+    image: ghost:5-alpine
+    restart: always
+    ports:
+      - "3169:2368"
+    environment:
+      url: http://localhost:3169
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ghost
+      database__connection__password: ghostdbpass
+      database__connection__database: ghost
+      NODE_ENV: development
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+      - ./praxis-ghost-theme:/var/lib/ghost/content/themes/praxis
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: ghostdbpass
+    volumes:
+      - ghost_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  ghost_content:
+  ghost_db:

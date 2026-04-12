@@ -1,0 +1,19 @@
+{{!< default}}
+
+<div class="section active">
+<div class="section-wrap">
+
+  <div class="doc-eyebrow">Prompts</div>
+  <h1 class="doc-title">{{tag.name}}</h1>
+  {{#if tag.description}}
+    <p class="doc-lead">{{tag.description}}</p>
+  {{/if}}
+
+  {{#foreach posts}}
+    {{> prompt-card}}
+  {{/foreach}}
+
+  {{pagination}}
+
+</div>
+</div>

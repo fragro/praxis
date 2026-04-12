@@ -1,0 +1,39 @@
+{{!< default}}
+
+<div class="section active">
+<div class="section-wrap">
+
+  <div class="doc-eyebrow">Welcome</div>
+  <h1 class="doc-title">PRAXIS: Build the Lifeboat</h1>
+  <p class="doc-lead">PRAXIS is a practice for building parallel democratic infrastructure. Select a section from the sidebar to begin reading the manifesto, or explore the prompts below to start building in your community.</p>
+
+  <div class="section-purpose">
+    <strong>Navigate the document.</strong> Use the sidebar to explore each section of the manifesto. Each section contains analysis, historical context, and actionable prompts you can use to build democratic infrastructure in your city.
+  </div>
+
+  <div class="sub-label">Recent Prompts</div>
+  {{#get "posts" filter="tag:-hash-section" order="published_at desc" limit="12"}}
+    {{#foreach posts}}
+      {{> prompt-card}}
+    {{/foreach}}
+  {{/get}}
+
+  <div class="sub-label">All Sections</div>
+  <div class="item-list">
+    {{#get "pages" filter="tag:hash-section" order="published_at asc" limit="all"}}
+      {{#foreach pages}}
+        <div class="list-item">
+          <a href="{{url}}" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:16px;width:100%;">
+            <div class="item-badge">{{@number}}</div>
+            <div class="item-body">
+              <div class="item-title">{{title}}</div>
+              {{#if custom_excerpt}}<div class="item-desc">{{custom_excerpt}}</div>{{/if}}
+            </div>
+          </a>
+        </div>
+      {{/foreach}}
+    {{/get}}
+  </div>
+
+</div>
+</div>

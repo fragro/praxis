@@ -1,0 +1,27 @@
+{
+  "name": "praxis",
+  "description": "PRAXIS Manifesto Ghost Theme",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=5.0.0",
+    "ghost-api": "v5"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "PRAXIS"
+  },
+  "config": {
+    "posts_per_page": 100,
+    "image_sizes": {
+      "s": { "width": 300 },
+      "m": { "width": 600 },
+      "l": { "width": 1200 }
+    }
+  },
+  "keywords": [
+    "ghost-theme",
+    "praxis",
+    "manifesto",
+    "democracy"
+  ]
+}
