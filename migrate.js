@@ -87,14 +87,10 @@ async function createTag(name, slug, visibility = 'internal') {
 }
 
 async function createPage(title, slug, htmlContent, excerpt, tagIds) {
-  const res = await ghostApi('POST', '/ghost/api/admin/pages/', {
+  const res = await ghostApi('POST', '/ghost/api/admin/pages/?source=html', {
     pages: [{
       title, slug, status: 'published',
-      mobiledoc: JSON.stringify({
-        version: '0.3.1', atoms: [], markups: [],
-        cards: [['html', { html: htmlContent }]],
-        sections: [[10, 0]]
-      }),
+      html: htmlContent,
       custom_excerpt: excerpt || undefined,
       tags: tagIds.map(id => ({ id }))
     }]
@@ -105,13 +101,10 @@ async function createPage(title, slug, htmlContent, excerpt, tagIds) {
 }
 
 async function createPost(title, slug, question, hint, tagIds) {
-  const res = await ghostApi('POST', '/ghost/api/admin/posts/', {
+  const res = await ghostApi('POST', '/ghost/api/admin/posts/?source=html', {
     posts: [{
       title, slug, status: 'published',
-      mobiledoc: JSON.stringify({
-        version: '0.3.1', atoms: [], markups: [],
-        cards: [], sections: [[1, 'p', [[0, [], 0, question]]]]
-      }),
+      html: '<p>' + question + '</p>',
       custom_excerpt: hint ? hint.substring(0, 300) : undefined,
       tags: tagIds.map(id => ({ id }))
     }]

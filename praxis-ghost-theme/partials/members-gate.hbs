@@ -5,11 +5,17 @@
 
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 32px;">
       <h2 style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--black);margin-bottom:12px;">Invite Only</h2>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:32px;">This site is private. Sign in with your account to access the PRAXIS document and prompts.</p>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:24px;">This site is private. Enter the access code to continue.</p>
 
-      <a href="#/portal/signin" style="display:block;background:var(--red);color:#fff;font-family:var(--font-display);font-weight:600;font-size:15px;padding:12px 24px;border-radius:var(--radius-md);text-decoration:none;margin-bottom:12px;">Sign In</a>
+      <form id="access-form" onsubmit="return checkAccess()">
+        <input id="access-code" type="password" placeholder="Access code"
+          style="display:block;width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-md);font-family:var(--font-body);font-size:15px;background:var(--surface-2);color:var(--text-1);margin-bottom:12px;box-sizing:border-box;" />
+        <button type="submit"
+          style="display:block;width:100%;background:var(--red);color:#fff;font-family:var(--font-display);font-weight:600;font-size:15px;padding:12px 24px;border:none;border-radius:var(--radius-md);cursor:pointer;">Enter</button>
+      </form>
+      <p id="access-error" style="font-size:12px;color:var(--red);margin-top:12px;display:none;">Incorrect access code.</p>
 
-      <p style="font-size:12px;color:var(--text-3);margin-top:16px;">Don't have an account? Contact an organizer for an invitation.</p>
+      <p style="font-size:12px;color:var(--text-3);margin-top:20px;">Contact an organizer for the access code.</p>
     </div>
 
     <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-4);letter-spacing:1.5px;text-transform:uppercase;margin-top:32px;">
@@ -18,3 +24,21 @@
     </div>
   </div>
 </div>
+
+<script>
+function checkAccess() {
+  var code = document.getElementById('access-code').value;
+  // SHA-256 hash of the access code — set via Ghost code injection
+  var hash = window.__PRAXIS_ACCESS_HASH || '5e331ba24c2abe2500e2819de559ff65d06e830f7b795a7a3d264f8c769b6e1d';
+  crypto.subtle.digest('SHA-256', new TextEncoder().encode(code)).then(function(buf) {
+    var h = Array.from(new Uint8Array(buf)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    if (h === hash) {
+      document.cookie = 'praxis_access=' + h + ';path=/;max-age=7776000;SameSite=Lax';
+      window.location.reload();
+    } else {
+      document.getElementById('access-error').style.display = 'block';
+    }
+  });
+  return false;
+}
+</script>

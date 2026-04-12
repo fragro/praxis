@@ -1,48 +1,41 @@
-/* ═══════════════════════════════════════════════
-   PRAXIS Ghost Theme — Navigation
-   Version 2.0 · 2026
-═══════════════════════════════════════════════ */
-
 (function () {
   'use strict';
 
+  var isHomePage = window.location.pathname === '/';
+
+  function navigate(sectionId, button) {
+    document.querySelectorAll('.section').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    document.querySelectorAll('.sb-btn').forEach(function (b) {
+      b.classList.remove('active');
+    });
+    var target = document.getElementById(sectionId);
+    if (target) { target.classList.add('active'); }
+    if (button) { button.classList.add('active'); }
+    var main = document.querySelector('.main-content');
+    if (main) { main.scrollTop = 0; }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', '#' + sectionId);
+  }
+
   function initNav() {
-    // Highlight active sidebar link based on current URL
-    var currentPath = window.location.pathname;
-    document.querySelectorAll('.sb-btn').forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href && currentPath === href) {
-        link.classList.add('active');
-      } else if (href && currentPath.startsWith(href) && href !== '/') {
-        link.classList.add('active');
-      }
+    if (!isHomePage) return;
+
+    document.querySelectorAll('.sb-btn[data-section]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        navigate(btn.getAttribute('data-section'), btn);
+      });
     });
 
-    // Mobile sidebar toggle
-    var sidebar = document.querySelector('.sidebar');
-    if (!sidebar) return;
-
-    // Create mobile toggle button if it doesn't exist
-    if (!document.querySelector('.mobile-menu-btn')) {
-      var menuBtn = document.createElement('button');
-      menuBtn.className = 'mobile-menu-btn';
-      menuBtn.setAttribute('aria-label', 'Toggle menu');
-      menuBtn.innerHTML = '<span></span><span></span><span></span>';
-      document.body.appendChild(menuBtn);
-
-      menuBtn.addEventListener('click', function () {
-        sidebar.classList.toggle('open');
-        menuBtn.classList.toggle('active');
-      });
-
-      // Close sidebar when a link is clicked (mobile)
-      sidebar.querySelectorAll('.sb-btn').forEach(function (link) {
-        link.addEventListener('click', function () {
-          sidebar.classList.remove('open');
-          menuBtn.classList.remove('active');
-        });
-      });
+    var hash = window.location.hash.replace('#', '');
+    if (hash) {
+      var targetBtn = document.querySelector('.sb-btn[data-section="' + hash + '"]');
+      if (targetBtn) { navigate(hash, targetBtn); return; }
     }
+    var first = document.querySelector('.sb-btn[data-section]');
+    if (first) { navigate(first.getAttribute('data-section'), first); }
   }
 
   document.addEventListener('DOMContentLoaded', initNav);

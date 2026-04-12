@@ -3,22 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{meta_title}}</title>
-  <meta name="description" content="{{meta_description}}" />
+  <title>PRAXIS: Manifesto</title>
+  <meta name="description" content="PRAXIS: Participatory Revolutionary Autonomous eXperience and Infrastructure Stack. A framework for building parallel democratic infrastructure." />
   <link rel="stylesheet" href="{{asset "css/style.css"}}" />
   <script src="{{asset "js/theme.js"}}"></script>
+  <script defer src="https://analytics.praxisplan.org/script.js" data-website-id="be9bc5c6-212f-4bbf-af37-52bd922f3a61"></script>
+  <script>
+    (function() {
+      var hash = '5e331ba24c2abe2500e2819de559ff65d06e830f7b795a7a3d264f8c769b6e1d';
+      var match = document.cookie.match(/praxis_access=([a-f0-9]+)/);
+      if (!match || match[1] !== hash) {
+        document.documentElement.setAttribute('data-locked', 'true');
+      }
+    })();
+  </script>
+  <style>
+    #praxis-gate { display: none; }
+    [data-locked="true"] #praxis-content { display: none !important; }
+    [data-locked="true"] #praxis-gate {
+      display: block !important;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+    }
+  </style>
   {{ghost_head}}
 </head>
 <body>
 
-{{#if @member}}
-  {{> sidebar}}
+<div id="praxis-gate">
+  {{> members-gate}}
+</div>
+
+<div id="praxis-content">
+  <nav class="sidebar">
+    <div class="sb-brand">
+      <div class="sb-wordmark">PRAXIS</div>
+      <div class="sb-sub">Manifesto</div>
+    </div>
+
+    <div class="sb-nav">
+      <div class="sb-section-label">Document</div>
+      <a class="sb-btn" href="/#vision" data-section="vision">01 &mdash; Vision</a>
+      <a class="sb-btn" href="/#values" data-section="values">02 &mdash; Values</a>
+      <a class="sb-btn" href="/#foundations" data-section="foundations">03 &mdash; Foundations</a>
+      <a class="sb-btn" href="/#architecture" data-section="architecture">04 &mdash; Architecture</a>
+      <a class="sb-btn" href="/#power" data-section="power">05 &mdash; Power</a>
+      <a class="sb-btn" href="/#technology" data-section="technology">06 &mdash; Technology</a>
+      <a class="sb-btn" href="/#civic-engine" data-section="civic-engine">07 &mdash; Civic Engine</a>
+      <a class="sb-btn" href="/#communications" data-section="communications">08 &mdash; Communications</a>
+      <a class="sb-btn" href="/#coalition" data-section="coalition">09 &mdash; Coalition</a>
+      <a class="sb-btn" href="/#implementation" data-section="implementation">10 &mdash; Implementation</a>
+      <a class="sb-btn" href="/#working-groups" data-section="working-groups">11 &mdash; Working Groups</a>
+      <a class="sb-btn" href="/#resources" data-section="resources">12 &mdash; Resources</a>
+    </div>
+
+    <div class="theme-toggle">
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode"></button>
+      <span class="theme-toggle-label">Dark mode</span>
+    </div>
+
+    <div class="sb-meta">
+      <a href="/manifesto/" style="color:var(--red);text-decoration:none;font-weight:500;">Read the Manifesto &rarr;</a><br /><br />
+      Participatory Revolutionary<br />
+      Autonomous eXperience and<br />
+      Infrastructure Stack
+    </div>
+  </nav>
+
   <main class="main-content">
     {{{body}}}
   </main>
-{{else}}
-  {{> members-gate}}
-{{/if}}
+</div>
 
 <script src="{{asset "js/nav.js"}}"></script>
 {{ghost_foot}}

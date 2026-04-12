@@ -1,26 +1,4 @@
 {{!< default}}
-
-<div class="section active">
-<div class="section-wrap">
-
-  {{#post}}
-    {{{content}}}
-
-    {{!-- Pull in prompt cards tagged with this section --}}
-    {{#get "posts" filter="tag:hash-section-{{slug}}" order="published_at asc" limit="all"}}
-      {{#if posts.length}}
-        <div class="sub-label">Prompts</div>
-        {{#foreach posts}}
-          {{> prompt-card}}
-        {{/foreach}}
-      {{/if}}
-    {{/get}}
-
-    <div class="doc-footer">
-      <span>PRAXIS Manifesto</span>
-      <span>{{title}}</span>
-    </div>
-  {{/post}}
-
-</div>
-</div>
+{{#post}}
+{{{content}}}
+{{/post}}
