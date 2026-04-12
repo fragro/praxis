@@ -18,8 +18,14 @@ const http = require('http');
 let cheerio;
 try { cheerio = require('cheerio'); } catch { console.error('Run: npm install cheerio'); process.exit(1); }
 
-const GHOST_URL = 'http://localhost:3169';
-const ADMIN_KEY = '69dadba30eb824000143132a:78d8521abdd620e73c21114a14890c28a7c84c70d2adfc64f1779ae1a4902a99';
+const GHOST_URL = process.env.GHOST_URL || 'http://localhost:3169';
+const ADMIN_KEY = process.env.GHOST_ADMIN_KEY;
+
+if (!ADMIN_KEY) {
+  console.error('Set GHOST_ADMIN_KEY env var (format: id:secret)');
+  console.error('Create one in Ghost Admin > Settings > Integrations');
+  process.exit(1);
+}
 
 // Generate Ghost Admin API JWT token
 function makeToken() {
@@ -195,6 +201,33 @@ async function main() {
       if (post) { postCount++; process.stdout.write(`\r  Prompts: ${postCount}`); }
     }
     if (cards.length) console.log('');
+  }
+
+  // Import manifesto if manifesto.html exists
+  const manifestoPath = path.join(__dirname, 'manifesto.html');
+  if (fs.existsSync(manifestoPath)) {
+    console.log('Importing manifesto...');
+    const manifestoHtml = fs.readFileSync(manifestoPath, 'utf-8');
+    const $m = cheerio.load(manifestoHtml);
+
+    // Extract the article content and inline styles
+    const styleBlock = $m('style').html() || '';
+    const articleHtml = $m('article').html() || $m('.manifesto').html() || '';
+
+    if (articleHtml) {
+      const manifestoContent = `<style>${styleBlock}</style>\n${articleHtml}`;
+      const manifestoPage = await createPage(
+        'The Manifesto',
+        'manifesto',
+        manifestoContent,
+        'Build the lifeboat. A manifesto for parallel democratic infrastructure.',
+        []
+      );
+      if (manifestoPage) {
+        console.log('  Manifesto page created');
+        pageCount++;
+      }
+    }
   }
 
   console.log(`\nDone! ${pageCount} pages, ${postCount} prompts`);

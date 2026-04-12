@@ -11,11 +11,14 @@
 </head>
 <body>
 
-{{> sidebar}}
-
-<main class="main-content">
-  {{{body}}}
-</main>
+{{#if @member}}
+  {{> sidebar}}
+  <main class="main-content">
+    {{{body}}}
+  </main>
+{{else}}
+  {{> members-gate}}
+{{/if}}
 
 <script src="{{asset "js/nav.js"}}"></script>
 {{ghost_foot}}
